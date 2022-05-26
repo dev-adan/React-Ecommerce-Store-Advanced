@@ -1,20 +1,25 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter , Routes, Route } from 'react-router-dom'
 import { Navbar, Sidebar, Footer } from './components';
-import styled from 'styled-components';
-
-const Button = styled.button `
-background : green;
-color : white;
-
-
-`
+import  { Home,SingleProduct,Cart,Checkout,Error,About,Products,PrivateRoute } from './pages';
 
 function App() {
-  return <div>
-    <h4></h4>
-    <Button>click me</Button>
-  </div>
+  return(
+    <BrowserRouter>
+          <Navbar/>
+          <Sidebar/>
+        <Routes>
+          <Route path='/' element={<Home/>} />
+          <Route path='/about' element={<About/>} />
+          <Route path='/cart' element={<Cart/>} />
+          <Route path='/products' element={<Products/>} />
+          <Route path='/products/:id' element={<SingleProduct/>} />
+          <Route path='/checkout' element={<Checkout/>} />
+          <Route path='*' element={<Error/>} />
+        </Routes>
+        <Footer/>
+    </BrowserRouter>
+  )
 }
 
 export default App
