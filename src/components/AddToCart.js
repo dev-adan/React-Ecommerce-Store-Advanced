@@ -9,6 +9,15 @@ const AddToCart = ({product}) => {
   const{id,stock,colors} = product;
 
   const [mainColor,setMainColor] = useState(colors[0]);
+  const [amount,setAmount] = useState(1);
+
+  const increase = () => {
+
+  }
+
+  const decrease = () => {
+    
+  }
 
   return <Wrapper>
     <div className='colors'>
