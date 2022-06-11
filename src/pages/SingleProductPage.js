@@ -57,7 +57,7 @@ useEffect(() => {
 
           <p className='info'>
             <span>Available : </span> {stock > 0 ? 'In stock' : 'out of stock'}
-          </p>
+          </p> 
 
           <p className='info'>
             <span>SKU : </span> {sku}
