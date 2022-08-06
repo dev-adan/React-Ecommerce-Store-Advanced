@@ -4,6 +4,7 @@ import { BsFillGridFill, BsList } from 'react-icons/bs'
 import styled from 'styled-components'
 const Sort = () => {
   const {filtered_products : products, grid_view, setGridView,setListView,sort,updateSort} = useFilterContext();
+  
   return <Wrapper>
     <div className='btn-container'>
 

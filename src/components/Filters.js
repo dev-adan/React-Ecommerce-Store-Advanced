@@ -10,7 +10,6 @@ const Filters = () => {
   const categories = getUniqueValues(all_products,'category');
   const companies = getUniqueValues(all_products,'company');
   const colors = getUniqueValues(all_products,'colors');
-console.log(colors)
   return <Wrapper>
     <div className='content'>
       <form onSubmit={(e) => e.preventDefault()}>
@@ -84,7 +83,7 @@ console.log(colors)
         <div className='form-control'>
           <h5>price</h5>
           <p className='price'>{formatPrice(price)}</p>
-          <input 
+          <input className='price-input'
            type='range'
            name='price'
            onChange={updateFilters}
@@ -132,6 +131,10 @@ const Wrapper = styled.section`
   }
   .search-input::placeholder {
     text-transform: capitalize;
+  }
+
+  .price-input{
+    width : 7rem;
   }
 
   button {

@@ -8,8 +8,10 @@ import {
   FILTER_PRODUCTS,
   CLEAR_FILTERS,
 } from "../actions";
+import products_reducer from "./products_reducer";
 
 const filter_reducer = (state, action) => {
+
   if (action.type === LOAD_PRODUCTS) {
     let maxPrice = action.payload.map((p) => p.price);
     maxPrice = Math.max(...maxPrice);
@@ -60,7 +62,47 @@ const filter_reducer = (state, action) => {
     return { ...state, filters: { ...state.filters, [name]: value } };
   }
   if(action.type === FILTER_PRODUCTS){
-    return {...state }
+
+    const {all_products} = state;
+    const {text,category,company,color,price,shipping}= state.filters;
+    let tempProducts = [...all_products]
+
+
+    if(text){
+      tempProducts = tempProducts.filter((product) => {
+        return product.name.toLowerCase().includes(text) 
+      })
+    }
+
+    if(company !== 'all'){
+      tempProducts = tempProducts.filter((product) => {
+        return product.company === company
+      })
+    }
+
+    if(category !== 'all'){
+      tempProducts = tempProducts.filter(product => product.category === category)
+    }
+
+    if(color !== 'all'){
+      tempProducts = tempProducts.filter((product) => {
+        return product.colors.find((c) => c === color)
+      })
+      
+    }
+
+    if(shipping){
+      tempProducts  = tempProducts.filter((product) => product.shipping === true);
+    }
+
+    
+      tempProducts = tempProducts.filter(product => product.price <= price)
+    
+
+  
+
+
+    return {...state,filtered_products : tempProducts }
   }
 
   if(action.type === CLEAR_FILTERS){
