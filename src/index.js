@@ -9,12 +9,26 @@ import { UserProvider } from './context/user_context'
 import { Auth0Provider } from '@auth0/auth0-react'
 import { Cart } from './pages'
 
+
+//dev-2kxozasl.us.auth0.com
+//pPCNaGBILEVPJ1Gff1zgYYCjixZlyhOX
+
 ReactDOM.render(
+    <Auth0Provider
+    domain="dev-2kxozasl.us.auth0.com"
+    clientId="pPCNaGBILEVPJ1Gff1zgYYCjixZlyhOX"
+    redirectUri={window.location.origin}
+    cacheLocation='localstorage'
+  > 
+  <UserProvider>
 <ProductsProvider>
+   
     <FilterProvider>
         <CartProvider>
             <App />
         </CartProvider>
     </FilterProvider>
-</ProductsProvider>,
+</ProductsProvider>
+</UserProvider>
+</Auth0Provider>,
  document.getElementById('root'))

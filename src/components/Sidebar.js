@@ -11,6 +11,7 @@ import { Cart } from '../pages'
 
 const Sidebar = () => {
  const { closeSidebar , isSidebarOpen}  = useProductsContext();
+ const {myUser} = useUserContext();
 
   return <SidebarContainer>
     <aside className={`${isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}`}>
@@ -23,7 +24,9 @@ const Sidebar = () => {
         {links.map(({id,text,url}) => {
          return <li key={id}><Link to={url} onClick={closeSidebar}>{text}</Link></li>
         })}
-          <li><Link to='/checkout' onClick={closeSidebar}>checkout</Link></li>
+         {myUser && <li onClick={closeSidebar}>
+              <Link to='/checkout'>checkout</Link>
+            </li>}
       </ul>
       <CartButtons/>
   
