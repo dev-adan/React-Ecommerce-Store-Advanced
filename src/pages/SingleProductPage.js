@@ -30,6 +30,7 @@ useEffect(() => {
 
     },3000)
   }
+  //eslint-disable-next-line
 },[error])
   
   if(loading){

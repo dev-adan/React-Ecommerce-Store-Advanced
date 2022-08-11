@@ -4,10 +4,10 @@ import styled from 'styled-components'
 const ProductImages = ({images = [{url : ''}]}) => {
   const [main, setMain] = useState(images[0]);
   return <Wrapper>
-    <img src={main.url} alt='main image'/>
+    <img src={main.url} alt='main'/>
     <div className='gallery'>
       {images.map((image,index) => {
-        return <img key={index} className={`${image .url === main.url ? 'active' : null}`} src={image.url} alt='gallary images' onClick={() => setMain(images[index])}/>
+        return <img key={index} className={`${image.url === main.url ? 'active' : null}`} src={image.url} alt='gallary images' onClick={() => setMain(images[index])}/>
       })}
 
     </div>
