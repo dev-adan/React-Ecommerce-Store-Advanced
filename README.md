@@ -1,3 +1,6 @@
+Access the live site here : https://edens-store-comfy.netlify.app
+
+
 ## Notes
 
 #### Older React Version
